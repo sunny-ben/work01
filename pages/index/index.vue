@@ -2,25 +2,22 @@
 	<view class="content">
 		<image class="logo" src="/static/logo.png"></image>
 		<view class="text-area">
-			<text class="title">{{title}}</text>
-                                                <button></button>
+			<text class="title">{{title}}</text><br/>
+            <button @click="changTitle">{{butval}}</button>
+			 <button @click="reChangeTitle">{{butval}}</button>
 		</view>
 	</view>
 </template>
 
-<script>
-	export default {
-		data() {
-			return {
-				title: 'Hello'
-			}
-		},
-		onLoad() {
-
-		},
-		methods: {
-
-		}
+<script setup>
+	import {ref} from "vue"
+	let title= ref("你好！");
+	let butval=ref("这个是按钮");
+	function  changTitle(){
+		title.value="改变了title";
+	}
+	function reChangeTitle(){
+		title.value="你好";
 	}
 </script>
 
